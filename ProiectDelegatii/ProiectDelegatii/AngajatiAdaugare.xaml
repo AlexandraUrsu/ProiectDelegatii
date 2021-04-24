@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectDelegatii.AngajatiAdaugare" BackgroundColor="#374147">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20">
+                <Editor Placeholder="Nume" PlaceholderColor="#aeb0ae" Margin="20"
+                    Text="{Binding Nume}"
+                        TextColor="#fae887"
+                    HeightRequest="50" />
+                <Editor Placeholder="Preume" PlaceholderColor="#aeb0ae" Margin="20"
+                    Text="{Binding Prenume}"
+                        TextColor="#fae887"
+                    HeightRequest="50" />
+                <Editor Placeholder="Manager" PlaceholderColor="#aeb0ae" Margin="20"
+                    Text="{Binding Manager}"
+                        TextColor="#fae887"
+                    HeightRequest="50" />
+                <Editor Placeholder="Filiala" PlaceholderColor="#aeb0ae" Margin="20"
+                    Text="{Binding Filiala}"
+                        TextColor="#fae887"
+                    HeightRequest="50" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Save"
+                        Clicked="OnSaveButtonClicked" />
+                    <Button Grid.Column="1"
+                        Text="Delete"
+                        Clicked="OnDeleteButtonClicked"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

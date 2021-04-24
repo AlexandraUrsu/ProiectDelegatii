@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectDelegatii.DelegatieLista"
+             BackgroundColor="#fffced">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content xmlns:local="clr-namespace:ProiectDelegatii">
+        <ScrollView>
+        <StackLayout Margin="20">
+            <Label Text="Locatie:" />
+            <Editor x:Name="tara" Placeholder="Tara"
+                    Text="{Binding Tara}"
+                     Margin="30, 0, 0, 30"
+                     HeightRequest="40">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
+            <Editor x:Name="loc" Placeholder="Localitatea"
+                    Text="{Binding Localitate}"
+                     Margin="30, 0, 0, 30"
+                     HeightRequest="40">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
+            <Editor x:Name="adr" Placeholder="Adresa"
+                    Text="{Binding Adresa}"
+                     Margin="30, 0, 0, 30"
+                     HeightRequest="40">
+                <Editor.Behaviors>
+                    <local:ValidationBehaviour />
+                </Editor.Behaviors>
+            </Editor>
+            
+                <Label Text="Data pornire" />
+                <DatePicker x:Name="startDatePicker"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                     HeightRequest="40"
+                    Date="{Binding Data_Plecare}"/>
+
+                <Label Text="Data intoarcere:" />
+                <DatePicker x:Name="endDatePicker"
+                    MinimumDate="{Binding Source={x:Reference startDatePicker},
+                                          Path=Date}"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                   HeightRequest="40"
+                    Date="{Binding Data_Intoarcere}"/>
+           
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

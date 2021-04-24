@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectDelegatii.QrScanner"
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid>
+                <Editor Placeholder="Denumire"  
+                    Text="{Binding Denumire}"
+                     HeightRequest="70"/>
+                <Editor Grid.Column="1"
+                    Placeholder="Suma" 
+                    Text="{Binding Suma}"
+                     HeightRequest="70"/>
+                <Editor x:Name="scanResult" Placeholder="Cod" Text="{Binding Cod}" Grid.Row="1"/>
+                <Button Grid.Column="3"
+                        Text="Save"
+                         Clicked="OnSaveButtonClicked" />
+                <Button Grid.Column="3"  Grid.Row="1"
+                        Text="Delete"
+                        Clicked="OnDeleteButtonClicked" />
+            </Grid>
+            <zxing:ZXingScannerView IsScanning="True" OnScanResult="OnScan"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProiectDelegatii.ListDelegatie"
+             BackgroundColor="#fffced">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Deschide Harta" Clicked="OnDeschideHartaClicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content xmlns:local="clr-namespace:ProiectDelegatii">
+        <ScrollView>
+            <StackLayout Margin="20">
+                <Label Text="Locatie:" />
+                <Editor x:Name="tara" Placeholder="Tara"
+                    Text="{Binding Tara}"
+                     Margin="30, 0, 0, 30">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+                <Editor x:Name="loc" Placeholder="Localitatea"
+                    Text="{Binding Localitate}"
+                     Margin="30, 0, 0, 30">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+                <Editor x:Name="adr" Placeholder="Adresa"
+                    Text="{Binding Adresa}"
+                     Margin="30, 0, 0, 30">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
+                <Label Text="Data pornire" />
+                <DatePicker x:Name="startDatePicker"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                    
+                    Date="{Binding Data_Plecare}"/>
+
+                <Label Text="Data intoarcere:" />
+                <DatePicker x:Name="endDatePicker"
+                    MinimumDate="{Binding Source={x:Reference startDatePicker},
+                                          Path=Date}"
+                    Format="D"
+                    Margin="30, 0, 0, 30"
+                   
+                    Date="{Binding Data_Intoarcere}"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button Text="Scanare Documente"  Clicked="OnScanClicked" />
+                    <Button Grid.Column="1"  HeightRequest="60" Text="Vizualizare Documente" Clicked="OnViewClicked" Grid.RowSpan="1"/>
+                    <Button Grid.Row="1" Grid.ColumnSpan="2" Text="Angajati" Clicked="OnChooseButtonClicked"/>
+                    <Button Text="Save" Grid.Row="2"
+                        Clicked="OnSaveButtonClicked" />
+                    <Button Grid.Column="1" Grid.Row="2"
+                        Text="Delete"
+                        Clicked="OnDeleteButtonClicked"/>
+                    <ListView Grid.Row="3" Grid.ColumnSpan="2" x:Name="listView" Margin="20" ItemSelected="OnSelect">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextCell 
+                                      Text="{Binding Nume}"
+                                      TextColor="#374147"
+                                    Detail="{Binding Prenume}"
+                                      DetailColor="#aeb0ae"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
