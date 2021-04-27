@@ -3,23 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.QrScanner"
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Grid>
                 <Editor Placeholder="Denumire"  
                     Text="{Binding Denumire}"
-                     HeightRequest="70"/>
-                <Editor Grid.Column="1"
+                     HeightRequest="30"/>
+                <DatePicker x:Name="DatePicker"
+                    Grid.Column="1"
+                    Format="d"
+                    HeightRequest="30"
+                    Date="{Binding DataDocument}"/>
+                <Editor 
+                        Grid.Row="1"
                     Placeholder="Suma" 
                     Text="{Binding Suma}"
-                     HeightRequest="70"/>
-                <Editor x:Name="scanResult" Placeholder="Cod" Text="{Binding Cod}" Grid.Row="1"/>
-                <Button Grid.Column="3"
-                        Text="Save"
-                         Clicked="OnSaveButtonClicked" />
-                <Button Grid.Column="3"  Grid.Row="1"
-                        Text="Delete"
-                        Clicked="OnDeleteButtonClicked" />
+                     HeightRequest="40"/>
+                <Editor Grid.Column="1"
+                        Grid.Row="1"
+                    Placeholder="Moneda" 
+                    Text="{Binding Moneda}"
+                     HeightRequest="30"/>
+                
+                <Editor x:Name="scanResult" Placeholder="Cod" Text="{Binding Cod}" Grid.Row="2" Grid.ColumnSpan="2"/>
             </Grid>
             <zxing:ZXingScannerView IsScanning="True" OnScanResult="OnScan"/>
         </StackLayout>

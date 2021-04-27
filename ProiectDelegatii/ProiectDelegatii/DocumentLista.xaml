@@ -7,17 +7,18 @@
         <ToolbarItem Text="Descarca excel"  Clicked="OnDescarcaClicked" />
     </ContentPage.ToolbarItems>
     <StackLayout>
+
         <ListView x:Name="listView" 
               Margin="20" 
               ItemSelected="Handle_Selected">
-            <ListView.ItemTemplate>
+            <ListView.ItemTemplate >
                 <DataTemplate>
-                    <TextCell
+                    <TextCell 
                           TextColor="#374147" 
                           Text="{Binding Denumire}"
-                           DetailColor="#aeb0ae"
+                          DetailColor="#aeb0ae"
                           Detail="{Binding Suma}"
-                        />
+                    />
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -107,7 +107,7 @@ namespace ProiectDelegatii.Data
         public Task<List<Document>> GetListDocumentAsync(int delegatieid)
         {
             return _database.QueryAsync<Document>(
-            "select D.ID, D.Denumire, D.Suma, D.Cod from Document D"
+            "select D.ID, D.Denumire, D.Suma, D.Cod, D.Moneda, D.DataDocument from Document D"
             + " inner join Delegatie E"
             + " on D.DelegatieID = E.ID where E.ID = ?",
             delegatieid);

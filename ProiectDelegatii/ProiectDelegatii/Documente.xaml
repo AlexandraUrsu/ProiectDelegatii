@@ -3,34 +3,55 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.Documente"
              BackgroundColor="#fffced">
-    <ContentPage.Content xmlns:local="clr-namespace:Proiect_Delegatii">
+    <ContentPage.Content xmlns:local="clr-namespace:ProiectDelegatii">
         <StackLayout Margin="20">
-            <Label
+
+            <Label Text="Denumire"/>
+            <Entry
                     Text="{Binding Denumire}"
-                     HeightRequest="30" >
-            </Label>
+                     HeightRequest="50" >
+            </Entry>
 
-            <Label
-                    Text="{Binding Suma}"
-                     HeightRequest="30" >
-            </Label>
-
-            <Label
-                    Text="{Binding Cod}"
-                     HeightRequest="30" >
-            </Label>
-
+            <Label Text="Data Document"/>
+            <Entry
+                    Text="{Binding DataDocument}"
+                    HeightRequest="50"
+                    IsReadOnly="True">
+            </Entry>
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+                <Label Text="Suma"/>
+                <Entry
+                    Text="{Binding Suma}"
+                     HeightRequest="50" 
+                    IsReadOnly="True"
+                    Grid.Row="1">
+                </Entry>
+                
+                <Label Text="Moneda"  Grid.Column="1"/>
+                <Entry
+                    Grid.Column="1"
+                    Text="{Binding Moneda}"
+                     HeightRequest="50" 
+                     IsReadOnly="True"
+                    Grid.Row="1">
+                </Entry>
+            </Grid>
 
+            <Label Text="Cod factura"/>
+            <Entry
+                    Text="{Binding Cod}"
+                     HeightRequest="50"   >
+            </Entry>
+    
                 <Button
                         Text="Delete"
                         HeightRequest="50"
                         Clicked="OnDeleteButtonClicked"/>
-            </Grid>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

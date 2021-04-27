@@ -1,10 +1,9 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 
-namespace ProiectDelegatii
+public interface ISave
 {
-    interface ISave
-    {
-        Task SaveAndView(string filename, string contentType, MemoryStream stream);
-    }
+    //Method to save document as a file and view the saved document
+    Task SaveAndView(string filename, string contentType, MemoryStream stream);
 }
+

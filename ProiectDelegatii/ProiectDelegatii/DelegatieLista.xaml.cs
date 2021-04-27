@@ -16,7 +16,9 @@ namespace ProiectDelegatii
         public DelegatieLista()
         {
             InitializeComponent();
+            startDatePicker.MinimumDate = DateTime.UtcNow;
         }
+
         async void OnChooseButtonClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AngajatiCompanie((Delegatie)

@@ -16,6 +16,9 @@ namespace ProiectDelegatii
         public QrScanner()
         {
             InitializeComponent();
+            DatePicker.MinimumDate = DateTime.UtcNow.AddDays(-30);
+            DatePicker.MaximumDate = DateTime.UtcNow;
+
         }
 
         void OnScan(ZXing.Result result)

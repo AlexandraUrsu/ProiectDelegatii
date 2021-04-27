@@ -13,7 +13,9 @@ namespace ProiectDelegatii.Models
         public int ID { get; set; }
         public string Denumire { get; set; }
         public float Suma { get; set; }
+        public string Moneda { get; set; }
         public string Cod { get; set; }
+        public DateTime DataDocument { get; set; }
         [ForeignKey(typeof(Delegatie))]
         public int DelegatieID { get; set; }
         public Document() { }
