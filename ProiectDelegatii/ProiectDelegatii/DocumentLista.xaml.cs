@@ -46,42 +46,6 @@ namespace ProiectDelegatii
 			}
 		}
 
-		/*private string CreateDocument()
-		{
-			PdfDocument document = new PdfDocument();
-
-			var filePath = Path.Combine(DependencyService.Get<IFileSystem>().GetExternalStorage(), "Example.pdf");
-
-			byte[] byteArray = Encoding.UTF8.GetBytes(filePath);
-			//byte[] byteArray = Encoding.ASCII.GetBytes(contents);
-			MemoryStream stream = new MemoryStream(byteArray);
-
-			MemoryStream ms2 = new MemoryStream();
-
-			ms2.Write(byteArray, 0, byteArray.Length);
-
-			document.Save(ms2);
-
-			StreamReader reader = new StreamReader(stream);
-			string file = reader.ReadToEnd();
-
-			return file;
-		}
-
-		async void OnDescarcaClicked(object sender, EventArgs e)
-		{
-
-			try
-			{
-				var filePath = await Task.Run(() => CreateDocument());
-				await Launcher.OpenAsync(new OpenFileRequest(Path.GetFileName(filePath), new ReadOnlyFile(filePath)));
-			}
-			catch (Exception ex)
-			{
-				await DisplayAlert("Error", ex.Message, "Close");
-			}
-		}*/
-
 		
 		async void OnDescarcaClicked(object sender, EventArgs e)
 		{
