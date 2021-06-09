@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.DocumentLista"
-             BackgroundColor="#fffced">
+             BackgroundColor="#E3D4C5"
+             Title="Documente">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Descarca excel"  Clicked="OnDescarcaClicked" />
+        <ToolbarItem Text="Descarca pdf"  Clicked="OnDescarcaClicked" Icon="download.png" />
     </ContentPage.ToolbarItems>
     <StackLayout>
 
@@ -14,9 +15,9 @@
             <ListView.ItemTemplate >
                 <DataTemplate>
                     <TextCell 
-                          TextColor="#374147" 
+                          TextColor="Black" 
                           Text="{Binding Denumire}"
-                          DetailColor="#aeb0ae"
+                          DetailColor="#a87c62"
                           Detail="{Binding Suma}"
                     />
                 </DataTemplate>

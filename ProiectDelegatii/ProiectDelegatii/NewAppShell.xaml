@@ -8,12 +8,12 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="#6a4fa0" />
+                <Setter Property="Shell.BackgroundColor" Value="#6F402B" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#6a4fa0" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#6F402B" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
@@ -37,7 +37,7 @@
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#aa67FE" />
+                                    <Setter Property="BackgroundColor" Value="#a87c62" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -73,7 +73,7 @@
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
 
-        <ShellContent Title="Administrare Useri" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:AdminPage}" />
+        <ShellContent Title="Administrare Useri" Icon="users.png" ContentTemplate="{DataTemplate local:AdminPage}" />
     </FlyoutItem>
 
 
@@ -81,7 +81,7 @@
 
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to  -->
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" Icon="out.png">
     </MenuItem>
 
     <!--

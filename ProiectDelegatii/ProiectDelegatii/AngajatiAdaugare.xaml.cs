@@ -23,9 +23,16 @@ namespace ProiectDelegatii
 
             async void OnSaveButtonClicked(object sender, EventArgs e)
             {
+            if (nume.Text == null || nume.Text == "" || prenume.Text == null || prenume.Text == "" || manager.Text == null || manager.Text == "" || filiala.SelectedItem == null)
+            {
+                DisplayAlert("Nu se poate salva", "Toate câmpurile trebuie completate", "Ok");
+            }
+            else
+            {
                 var angajat = (Angajat)BindingContext;
                 await App.Database.SaveAngajatAsync(angajat);
                 await Navigation.PopAsync();
+            }
             }
             async void OnDeleteButtonClicked(object sender, EventArgs e)
             {

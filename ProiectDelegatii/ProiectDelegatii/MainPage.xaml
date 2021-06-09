@@ -2,11 +2,11 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.MainPage"
-             BackgroundColor="#fffced">
+             BackgroundColor="#E3D4C5">
 
     <StackLayout>
-        <Frame BackgroundColor="#fae887" Padding="24" CornerRadius="0">
-            <Label Text="Bun venit la Delegatii!" HorizontalTextAlignment="Center" TextColor="#948829" FontSize="36"/>
+        <Frame BackgroundColor="#CBAE97" Padding="24" CornerRadius="0">
+            <Label Text="Bun venit la Delegatii!" HorizontalTextAlignment="Center" TextColor="#9c675f" FontSize="36"/>
         </Frame>
         <Label Text="Documentele de care ai nevoie pentru delegatia ta" FontSize="Title" Padding="30,10,30,10"/>
         <Label Text="Copie buletin, asigurare, ordin de deplasare" FontSize="16" Padding="30,0,30,0"/>

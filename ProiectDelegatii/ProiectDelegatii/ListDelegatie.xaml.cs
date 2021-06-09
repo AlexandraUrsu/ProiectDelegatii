@@ -30,10 +30,17 @@ namespace ProiectDelegatii
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            var slist = (Delegatie)BindingContext;
-            slist.Data = DateTime.UtcNow;
-            await App.Database.SaveDelegatieAsync(slist);
-            await Navigation.PopAsync();
+            if (tara.Text == null || tara.Text == "" || loc.Text == null || loc.Text == "")
+            {
+                DisplayAlert("Nu putem modifica delegația", "Toate câmpurile trebuie să fie completate", "Ok");
+            }
+            else
+            {
+                var slist = (Delegatie)BindingContext;
+                slist.Data = DateTime.UtcNow;
+                await App.Database.SaveDelegatieAsync(slist);
+                await Navigation.PopAsync();
+            }
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
@@ -56,23 +63,17 @@ namespace ProiectDelegatii
             if (e.SelectedItem != null)
             {
                 a = e.SelectedItem as Angajat;
-                var actionSheet = await DisplayActionSheet(a.Nume + " " + a.Prenume, "Cancel", null, "Stergere");
+                var actionSheet = await DisplayActionSheet(a.Nume + " " + a.Prenume, "Închide" ,null, "Ștergere");
 
                 switch (actionSheet)
                 {
-                    case "Cancel":
-
-                        // Do Something when 'Cancel' Button is pressed
-
-                        break;
-
-                    case "Stergere":
+                    case "Ștergere":
                         Task<ListAngajat> taskListAngajat = App.Database.GetListAngajatAsync(del.ID, a.ID);
                         ListAngajat listang = taskListAngajat.Result;
                         await App.Database.DeleteListAngajatAsync(listang);
                         if (listang != null)
-                            DisplayAlert("Sters cu succes", "Angajatul " + a.Nume + " " + a.Prenume + " a fost strers din delegatia " + del.ID, "Ok");
-                        else DisplayAlert("Failed", "Sregerea nu se poate realiza", "Ok");
+                            DisplayAlert("Șters cu succes", "Angajatul " + a.Nume + " " + a.Prenume + " a fost ștrers din delegația " + del.ID, "Ok");
+                        else DisplayAlert("Failed", "Ștegerea nu se poate realiza", "Ok");
                         Navigation.PopAsync();
                         break;
                 }

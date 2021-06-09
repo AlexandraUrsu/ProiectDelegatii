@@ -2,22 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.AngajatiCompanie"
-             BackgroundColor="#374147">
+             BackgroundColor="#E3D4C5"
+             Title="Listă angajați">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Adauga un angajat" Clicked="OnAngajatAddedClicked" />
+        <ToolbarItem Text="Adauga un angajat" Clicked="OnAngajatAddedClicked" Icon="adaugangajat" />
     </ContentPage.ToolbarItems>
 
     <StackLayout>
-        <SearchBar Placeholder="Cauta angajat" TextChanged="OnTextChanged"></SearchBar>
+        <SearchBar Placeholder="Caută angajat" TextChanged="OnTextChanged"></SearchBar>
         <ListView x:Name="listView" 
               Margin="20" 
               ItemSelected="Handle_Selected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell
-                          TextColor="White" 
+                          TextColor="Black" 
                           Text="{Binding Nume}"
-                           DetailColor="#aeb0ae"
+                           DetailColor="Black"
                           Detail="{Binding Prenume}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>

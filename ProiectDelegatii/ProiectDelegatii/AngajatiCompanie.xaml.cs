@@ -64,25 +64,32 @@ namespace ProiectDelegatii
             if (e.SelectedItem != null)
             {
                 a = e.SelectedItem as Angajat;
-                var actionSheet = await DisplayActionSheet(a.Nume + " " + a.Prenume, "Cancel", null, "Adauga la delegatie", "Vizualizare");
+                var actionSheet = await DisplayActionSheet(a.Nume + " " + a.Prenume, "Închide", null, "Adaugă la delegație", "Vizualizare");
 
                 switch (actionSheet)
                 {
-                    case "Cancel":
 
-                        // Do Something when 'Cancel' Button is pressed
-
-                        break;
-
-                    case "Adauga la delegatie":
+                    case "Adaugă la delegație":
                         var la = new ListAngajat()
                         {
                             DelegatieID = dl.ID,
                             AngajatID = a.ID
                         };
-                        await App.Database.SaveListAngajatAsync(la);
-                        a.ListAngajati = new List<ListAngajat> { la };
-                        await Navigation.PopAsync();
+
+                        Task<ListAngajat> taskListAngajat = App.Database.GetListAngajatAsync(la.DelegatieID, la.AngajatID);
+                        ListAngajat listang = taskListAngajat.Result;
+
+                        if (listang != null) 
+                        {
+                            DisplayAlert("Atenție", "Angajatul este deja adăugat", "Ok");
+                        }
+                        else
+                        {
+                            await App.Database.SaveListAngajatAsync(la);
+                            a.ListAngajati = new List<ListAngajat> { la };
+                            await Navigation.PopAsync();
+                           
+                        }
 
                         break;
 

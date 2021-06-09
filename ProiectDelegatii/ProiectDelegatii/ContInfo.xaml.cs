@@ -12,9 +12,9 @@ using Xamarin.Forms.Xaml;
 namespace ProiectDelegatii
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UserAdaugare : ContentPage
+    public partial class ContInfo : ContentPage
     {
-        public UserAdaugare()
+        public ContInfo()
         {
             InitializeComponent();
         }
@@ -37,7 +37,7 @@ namespace ProiectDelegatii
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (user.Text == null || user.Text == "" || pass.Text == null || pass.Text == "" || rol.SelectedItem == null)
+            if (user.Text == null || user.Text == "" || pass.Text == null || pass.Text == "")
             {
                 DisplayAlert("Nu putem adăuga utilizatorul", "Toate câmpurile trebuie completate", "Ok");
             }

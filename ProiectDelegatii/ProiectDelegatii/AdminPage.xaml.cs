@@ -38,17 +38,11 @@ namespace ProiectDelegatii
             if (e.SelectedItem != null)
             {
                 u = e.SelectedItem as User;
-                var actionSheet = await DisplayActionSheet(u.Username, "Cancel", null, "Stergere", "Modificare");
+                var actionSheet = await DisplayActionSheet(u.Username, "Închide", null, "Modificare", "Ștergere");
 
                 switch (actionSheet)
                 {
-                    case "Cancel":
-
-                        // Do Something when 'Cancel' Button is pressed
-
-                        break;
-
-                    case "Stergere":
+                    case "Ștergere":
 
                         await App.Database.DeleteUserAsync(u);
 
@@ -64,6 +58,7 @@ namespace ProiectDelegatii
                         {
                             BindingContext = e.SelectedItem as User
                         });
+                        DisplayAlert("Atenție!","Numele de utilizator nu se poate modifica","Ok");
 
                         break;
 

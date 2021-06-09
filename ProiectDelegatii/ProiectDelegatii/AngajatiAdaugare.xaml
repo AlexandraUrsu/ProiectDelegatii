@@ -1,41 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProiectDelegatii.AngajatiAdaugare" BackgroundColor="#374147">
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:ProiectDelegatii"
+             x:Class="ProiectDelegatii.AngajatiAdaugare" 
+             BackgroundColor="#E3D4C5">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" Icon="save.png"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Margin="20">
-                <Editor Placeholder="Nume" PlaceholderColor="#aeb0ae" Margin="20"
+                <Label Text="Nume:"/>
+                <Editor x:Name="nume" Placeholder="Nume" Margin="20"
                     Text="{Binding Nume}"
-                        TextColor="#fae887"
-                    HeightRequest="50" />
-                <Editor Placeholder="Preume" PlaceholderColor="#aeb0ae" Margin="20"
+                    HeightRequest="50">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+                
+                <Label Text="Prenume:"/>
+                <Editor x:Name="prenume" Placeholder="Prenume" Margin="20"
                     Text="{Binding Prenume}"
-                        TextColor="#fae887"
-                    HeightRequest="50" />
-                <Editor Placeholder="Manager" PlaceholderColor="#aeb0ae" Margin="20"
+                    HeightRequest="50" >
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+                
+                <Label Text="Manager:"/>
+                <Editor x:Name="manager" Placeholder="Manager" Margin="20"
                     Text="{Binding Manager}"
-                        TextColor="#fae887"
-                    HeightRequest="50" />
-                <Editor Placeholder="Filiala" PlaceholderColor="#aeb0ae" Margin="20"
-                    Text="{Binding Filiala}"
-                        TextColor="#fae887"
-                    HeightRequest="50" />
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="Auto" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Button Text="Save"
-                        Clicked="OnSaveButtonClicked" />
-                    <Button Grid.Column="1"
-                        Text="Delete"
-                        Clicked="OnDeleteButtonClicked"/>
-                </Grid>
+                    HeightRequest="50" >
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+                
+                <Label Text="Filiala:"/>
+                <Picker x:Name="filiala" HorizontalOptions="FillAndExpand" Margin="20" Title="{Binding Filiala}" SelectedItem="{Binding Filiala}">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Cluj</x:String>
+                            <x:String>București</x:String>
+                            <x:String>Iași</x:String>
+                            <x:String>Brașov</x:String>
+                            <x:String>Sibiu</x:String>
+                            <x:String>Novi Sad</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

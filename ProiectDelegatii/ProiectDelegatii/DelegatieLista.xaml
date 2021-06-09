@@ -2,15 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.DelegatieLista"
-             BackgroundColor="#fffced">
+             BackgroundColor="#E3D4C5">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" />
+        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" Icon="save.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content xmlns:local="clr-namespace:ProiectDelegatii">
         <ScrollView>
         <StackLayout Margin="20">
-            <Label Text="Locatie:" />
-            <Editor x:Name="tara" Placeholder="Tara"
+            <Label Text="Locație:" />
+            <Editor x:Name="tara" Placeholder="Țara"
                     Text="{Binding Tara}"
                      Margin="30, 0, 0, 30"
                      HeightRequest="40">
@@ -35,20 +35,21 @@
                 </Editor.Behaviors>
             </Editor>
             
-                <Label Text="Data pornire" />
+                <Label Text="Dată pornire" />
                 <DatePicker x:Name="startDatePicker"
                     Format="D"
                     Margin="30, 0, 0, 30"
-                     HeightRequest="40"
+                    HeightRequest="40"
+                    TextColor="#a87c62"
                     Date="{Binding Data_Plecare}"/>
 
-                <Label Text="Data intoarcere:" />
+                <Label Text="Dată întoarcere:" />
                 <DatePicker x:Name="endDatePicker"
-                    MinimumDate="{Binding Source={x:Reference startDatePicker},
-                                          Path=Date}"
+                    MinimumDate="{Binding Source={x:Reference startDatePicker},Path=Date}"
                     Format="D"
                     Margin="30, 0, 0, 30"
-                   HeightRequest="40"
+                    HeightRequest="40"
+                    TextColor="#a87c62"
                     Date="{Binding Data_Intoarcere}"/>
            
             </StackLayout>

@@ -2,14 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.LoginPage"
-             BackgroundColor="#374147">
+             BackgroundColor="#A87C62">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="lbl_username" Text="Username" HorizontalOptions="Center" TextColor="#fffced" />
-            <Entry x:Name="entry_username" Placeholder="Username" HorizontalOptions="Center" VerticalOptions="Center"/>
-            <Label x:Name="lbl_pass" Text="Password" HorizontalOptions="Center" TextColor="#fffced"/>
-            <Entry x:Name="entry_pass" Placeholder="Password" IsPassword="True" HorizontalOptions="Center" VerticalOptions="Center" />
-            <Button x:Name="SigninBtn" Text="Sign in" Clicked="SignInEvent" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Frame BackgroundColor="#CBAE97" Padding="24" >
+                <Label Text=" Delegații" HorizontalTextAlignment="Center" TextColor="#9c675f" FontSize="36"/>
+            </Frame>
+            <Label Text="Autentificare:"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="#CBAE97" FontSize="26"/>
+
+            <Image Source="user.png"/>
+            <Entry x:Name="entry_username" Placeholder="Username" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Image Source="pass.png"/>
+            <Entry x:Name="entry_pass" Placeholder="Parolă" IsPassword="True" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+            <Button x:Name="SigninBtn" Text="Sign in" Clicked="SignInEvent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="#CBAE97"/>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -2,22 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.DelegatiiEntryPage"
-             BackgroundColor="#fffced">
+             BackgroundColor="#E3D4C5"
+             Title="Listă delegații">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Adauga o delegatie" Clicked="OnDelegatieAddedClicked" />
+        <ToolbarItem Text="Adauga o delegatie" Clicked="OnDelegatieAddedClicked" Icon="adaugadelegatie.png"/>
     </ContentPage.ToolbarItems>
     <StackLayout>
-        <SearchBar Placeholder="Cauta delegatie" TextChanged="OnTextChanged"></SearchBar>
+        <SearchBar Placeholder="Caută delegație" TextChanged="OnTextChanged"></SearchBar>
         <ListView x:Name="listView" 
               Margin="20" 
               ItemSelected="OnListViewItemSelected">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell
-                          TextColor="#374147" 
+                          TextColor="#2d351a" 
                           Text="{Binding ID}"
-                           DetailColor="#aeb0ae"
-                          Detail="{Binding Data}"/>
+                           DetailColor="#a87c62"
+                          Detail="{Binding Data_Plecare}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

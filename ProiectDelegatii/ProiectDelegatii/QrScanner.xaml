@@ -2,32 +2,50 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.QrScanner"
-             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
+             xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
+             xmlns:local="clr-namespace:ProiectDelegatii"
+             BackgroundColor="#E3D4C5">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" />
+        <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" Icon="save.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <Grid>
-                <Editor Placeholder="Denumire"  
+                <Editor x:Name="denumire"
+                    Placeholder="Denumire"  
                     Text="{Binding Denumire}"
-                     HeightRequest="30"/>
+                     HeightRequest="30">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
                 <DatePicker x:Name="DatePicker"
                     Grid.Column="1"
                     Format="d"
                     HeightRequest="30"
                     Date="{Binding DataDocument}"/>
-                <Editor 
+
+                <Editor x:Name="suma"
                         Grid.Row="1"
-                    Placeholder="Suma" 
+                    Placeholder="Suma"
                     Text="{Binding Suma}"
-                     HeightRequest="40"/>
-                <Editor Grid.Column="1"
-                        Grid.Row="1"
-                    Placeholder="Moneda" 
-                    Text="{Binding Moneda}"
-                     HeightRequest="30"/>
-                
+                     HeightRequest="40">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
+                <Picker x:Name="moneda" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1" Title="Moneda" SelectedItem="{Binding Moneda}" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Ron</x:String>
+                            <x:String>Euro</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+
                 <Editor x:Name="scanResult" Placeholder="Cod" Text="{Binding Cod}" Grid.Row="2" Grid.ColumnSpan="2"/>
             </Grid>
             <zxing:ZXingScannerView IsScanning="True" OnScanResult="OnScan"/>

@@ -8,12 +8,12 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="#6a4fa0" />
+                <Setter Property="Shell.BackgroundColor" Value="#6F402B" />
                 <Setter Property="Shell.ForegroundColor" Value="White" />
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#6a4fa0" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#6F402B" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
@@ -37,7 +37,7 @@
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#aa67FE" />
+                                    <Setter Property="BackgroundColor" Value="#A87C62" />
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>
@@ -72,9 +72,8 @@
 
 
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Home" Icon="tab_about.png" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
-        <ShellContent Title="Delegatii" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:DelegatiiEntryPage}" />
-        <ShellContent Title="Admin Page" Icon="tab_feed.png" ContentTemplate="{DataTemplate local:AdminPage}" />
+        <ShellContent Title="Home" Icon="home.png" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Title="Delegații" Icon="delegatii.png" ContentTemplate="{DataTemplate local:DelegatiiEntryPage}" />
     </FlyoutItem>
 
 
@@ -82,11 +81,8 @@
         <Tab Route="home" Title="Home" Icon="home.png">
             <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}"/>
         </Tab>
-        <Tab Route="delegatii" Title="Delegatii" Icon="library.png">
-            <ShellContent Title="Delegatii" ContentTemplate="{DataTemplate local:DelegatiiEntryPage}"/>
-        </Tab>
-        <Tab Route="AdminPage" Title="Contul meu" Icon="contact.png">
-            <ShellContent Title="Contul meu" ContentTemplate="{DataTemplate local:AdminPage}"/>
+        <Tab Route="delegatii" Title="Delegații" Icon="library.png">
+            <ShellContent Title="Delegații" ContentTemplate="{DataTemplate local:DelegatiiEntryPage}"/>
         </Tab>
     </TabBar>
 
@@ -94,9 +90,10 @@
 
 
     <!-- When the Flyout is visible this will be a menu item you can tie a click behavior to -->
-    <MenuItem Text="ContulMeu" StyleClass="MenuItemLayoutStyle" Clicked="OnContulMeuClicked">
+
+    <MenuItem Text="Contul meu" StyleClass="MenuItemLayoutStyle" Clicked="OnContulMeuClicked" Icon="info.png">
     </MenuItem>
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked" Icon="out.png">
     </MenuItem>
 
     <!--

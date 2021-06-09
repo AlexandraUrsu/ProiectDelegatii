@@ -56,7 +56,7 @@ namespace ProiectDelegatii
 			DateTime data;
 			foreach ( Document chestie in l)
 			{
-				if (chestie.Moneda.Equals("lei"))
+				if (chestie.Moneda.Equals("Ron"))
 					s = s + chestie.Suma;
 				else s = (float)(s + chestie.Suma * 4.9);
 			}
@@ -94,7 +94,7 @@ namespace ProiectDelegatii
 					graphics.DrawString(s.ToString()+" "+chestie.Moneda, font, PdfBrushes.Black, new PointF(380, i));
 				}
 				graphics.DrawString("Total Cheltuieli", font, PdfBrushes.Black, new PointF(30, i+50));
-				graphics.DrawString(suma+" lei", font, PdfBrushes.Black, new PointF(380, i+50));
+				graphics.DrawString(suma+" Ron", font, PdfBrushes.Black, new PointF(380, i+50));
 				//Save the document to the stream
 				MemoryStream stream = new MemoryStream();
 				document.Save(stream);

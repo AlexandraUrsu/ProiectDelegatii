@@ -30,9 +30,22 @@ namespace ProiectDelegatii
         }
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            var doc = (Document)BindingContext;
-            await App.Database.SaveDocumentAsync(doc);
-            await Navigation.PopAsync();
+            int result;
+
+            if (denumire.Text == null || denumire.Text == "" || suma.Text == null || suma.Text == "" || moneda.SelectedItem == null)
+            {
+                DisplayAlert("Nu putem salva documentul", "Toate câmpurile trebuie completate", "Ok");
+            }
+            else if(int.TryParse(suma.Text, out result))
+            {
+                var doc = (Document)BindingContext;
+                await App.Database.SaveDocumentAsync(doc);
+                await Navigation.PopAsync();
+            }
+            else
+            {
+                DisplayAlert("Nu putem salva documentul", "Introduceți doar numere în câmpul destinat sumei", "Ok");
+            }
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {

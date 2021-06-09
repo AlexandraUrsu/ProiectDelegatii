@@ -2,22 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProiectDelegatii.Documente"
-             BackgroundColor="#fffced">
+             BackgroundColor="#E3D4C5"
+             Title="{Binding Denumire}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="OnDeleteButtonClicked" Icon="delete.png"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content xmlns:local="clr-namespace:ProiectDelegatii">
         <StackLayout Margin="20">
 
             <Label Text="Denumire"/>
             <Entry
                     Text="{Binding Denumire}"
-                     HeightRequest="50" >
+                    HeightRequest="50" 
+                    IsEnabled="False">
             </Entry>
 
             <Label Text="Data Document"/>
-            <Entry
-                    Text="{Binding DataDocument}"
+            <DatePicker x:Name="DatePicker"
+                    Grid.Column="1"
+                    Format="d"
                     HeightRequest="50"
-                    IsReadOnly="True">
-            </Entry>
+                    IsEnabled="False"
+                    Date="{Binding DataDocument}"/>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
@@ -26,8 +32,8 @@
                 <Label Text="Suma"/>
                 <Entry
                     Text="{Binding Suma}"
-                     HeightRequest="50" 
-                    IsReadOnly="True"
+                    HeightRequest="50" 
+                    IsEnabled="False"
                     Grid.Row="1">
                 </Entry>
                 
@@ -35,22 +41,17 @@
                 <Entry
                     Grid.Column="1"
                     Text="{Binding Moneda}"
-                     HeightRequest="50" 
-                     IsReadOnly="True"
+                    HeightRequest="50" 
+                    IsEnabled="False"
                     Grid.Row="1">
                 </Entry>
             </Grid>
 
-            <Label Text="Cod factura"/>
+            <Label Text="Cod factură"/>
             <Entry
                     Text="{Binding Cod}"
-                     HeightRequest="50"   >
+                    HeightRequest="50" >
             </Entry>
-    
-                <Button
-                        Text="Delete"
-                        HeightRequest="50"
-                        Clicked="OnDeleteButtonClicked"/>
 
         </StackLayout>
     </ContentPage.Content>

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProiectDelegatii.AdminPage">
+             x:Class="ProiectDelegatii.AdminPage"
+             BackgroundColor="#E3D4C5">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Creaza un user nou" Clicked="OnUserAddedClicked"  />
+        <ToolbarItem Text="Creaza un user nou" Clicked="OnUserAddedClicked" Icon="adaugauser.png" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>

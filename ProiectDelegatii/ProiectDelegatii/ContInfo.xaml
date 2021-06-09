@@ -2,17 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:ProiectDelegatii"
-             x:Class="ProiectDelegatii.UserAdaugare"
-             BackgroundColor="#E3D4C5">
+             x:Class="ProiectDelegatii.ContInfo"
+             BackgroundColor="#E3D4C5"
+             Title="Modifică parola">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" Icon="save.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout Margin="20">
-                <Label Text="Nme de utilizator"/>
+                <Label Text="Dacă te-ai răzgândit, este îndeajuns să ieși din pagină. Dacă nu salvezi, parola ta va rămânea cea de până acum."/>
                 <Editor x:Name="user" Placeholder="Nume de utilizator" Margin="20"
                     Text="{Binding Username}"
+                    TextColor="Black"
+                    HeightRequest="50"
+                    IsEnabled="False">
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
+                <Editor x:Name="pass" Placeholder="Introdu noua parolă" Margin="20"
+                    Text="{Binding Parola}"
                         TextColor="Black"
                     HeightRequest="50">
                     <Editor.Behaviors>
@@ -20,18 +31,7 @@
                     </Editor.Behaviors>
                 </Editor>
 
-                <Label Text="Parolă"/>
-                <Editor x:Name="pass" Placeholder="Parolă" Margin="20"
-                    Text="{Binding Parola}"
-                        TextColor="Black"
-                    HeightRequest="50" >
-                    <Editor.Behaviors>
-                        <local:ValidationBehaviour />
-                    </Editor.Behaviors>
-                </Editor>
-
-                <Label Text="Rol"/>
-                <Picker x:Name="rol" HorizontalOptions="FillAndExpand" Margin="20" Title="{Binding Rol}" SelectedItem="{Binding Rol}" >
+                <Picker x:Name="rol" HorizontalOptions="FillAndExpand" Margin="20" Title="{Binding Rol}" SelectedItem="{Binding Rol}" IsEnabled="False" >
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>User</x:String>

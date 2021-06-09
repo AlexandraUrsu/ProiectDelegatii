@@ -46,7 +46,7 @@ namespace ProiectDelegatii
             }
             else
             {
-               /* user.Parola = passwordEncryption(user.Parola);
+                user.Parola = passwordEncryption(user.Parola);
                 Task<User> taskUser = App.Database.GetUserAsync(user.Username);
                 User userr = taskUser.Result;
                 if (userr == null)
@@ -71,14 +71,14 @@ namespace ProiectDelegatii
                         }
                         else if (user_r.Rol.Equals("user"))
                         {
-                          */  DisplayAlert(user.Username, "User", "Ok");
+                            DisplayAlert(user.Username, "User", "Ok");
                             App.Current.MainPage = new AppShell(user);
                         }
                     }
-           //     }
+                }
 
-         //   }
-       // }
+            }
+        }
 
     }
 }

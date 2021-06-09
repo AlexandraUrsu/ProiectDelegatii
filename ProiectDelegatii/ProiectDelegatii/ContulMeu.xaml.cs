@@ -30,14 +30,17 @@ namespace ProiectDelegatii
 
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+
+
             if (e.SelectedItem != null)
             {
                 u = e.SelectedItem as User;
                 u.id = 1;
-                await Navigation.PushAsync(new UserAdaugare()
+                await Navigation.PushAsync(new ContInfo()
                 {
                     BindingContext = e.SelectedItem as User
                 });
+                DisplayAlert("Atenție!", "Rolul și numele de utilizator nu se pot modifica", "Ok");
             }
         }
     }

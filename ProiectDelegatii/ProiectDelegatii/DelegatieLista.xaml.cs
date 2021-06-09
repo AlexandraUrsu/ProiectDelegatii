@@ -31,10 +31,16 @@ namespace ProiectDelegatii
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            var slist = (Delegatie)BindingContext;
-            slist.Data = DateTime.UtcNow;
-            await App.Database.SaveDelegatieAsync(slist);
-            await Navigation.PopAsync();
+            if (tara.Text == null || tara.Text == "" || loc.Text ==null || loc.Text == "" )
+            {
+                DisplayAlert("Nu putem salva delegația", "Toate câmpurile trebuie completate", "Ok");
+            } else
+            {
+                var slist = (Delegatie)BindingContext;
+                slist.Data = DateTime.UtcNow;
+                await App.Database.SaveDelegatieAsync(slist);
+                await Navigation.PopAsync();
+            }
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {

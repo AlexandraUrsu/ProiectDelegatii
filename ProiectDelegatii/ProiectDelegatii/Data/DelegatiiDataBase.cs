@@ -137,7 +137,7 @@ namespace ProiectDelegatii.Data
         public Task<ListAngajat> GetListAngajatAsync(int delegatieid, int angajatid)
         {
             return _database.FindWithQueryAsync<ListAngajat>(
-            "select LA.ID from ListAngajat LA"
+            "select LA.ID, LA.DelegatieID, LA.AngajatID from ListAngajat LA"
             + " where LA.DelegatieID = ? and LA.AngajatID = ?",
             delegatieid, angajatid);
         }

@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProiectDelegatii.ContulMeu">
+             x:Class="ProiectDelegatii.ContulMeu"
+             BackgroundColor="#E3D4C5"
+             Title="Contul meu">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="{Binding Username}" />
     </ContentPage.ToolbarItems>
@@ -16,7 +18,7 @@
                         <TextCell
                           TextColor="#374147" 
                           Text="{Binding Username}"
-                           DetailColor="#aeb0ae"
+                           DetailColor="#a87c62"
                           Detail="{Binding Rol}"/>
                     </DataTemplate>
                 </ListView.ItemTemplate>
