@@ -76,9 +76,11 @@ namespace ProiectDelegatii.Data
             return _database.DeleteAsync(angajat);
         }
 
-        public Task<List<Angajat>> GetAngajatiAsync()
+        public Task<Angajat> GetAngajatiAsync(string CNP)
         {
-            return _database.Table<Angajat>().ToListAsync();
+            return _database.FindWithQueryAsync<Angajat>(
+           "select A.ID, A.CNP from Angajat A"
+           + " where A.CNP = ?", CNP);
         }
 
         //Document

@@ -12,13 +12,82 @@
         <ScrollView>
             <StackLayout Margin="20">
                 <Label Text="Locație:" />
-                <Editor x:Name="tara" Placeholder="Țara"
-                    Text="{Binding Tara}"
-                     Margin="30, 0, 0, 30">
-                    <Editor.Behaviors>
-                        <local:ValidationBehaviour />
-                    </Editor.Behaviors>
-                </Editor>
+
+                <Picker x:Name="tara" Title="{Binding Tara}" SelectedItem="{Binding Tara}" Margin="30, 0, 0, 30" >
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Albania</x:String>
+                            <x:String>Anglia</x:String>
+                            <x:String>Argentina</x:String>
+                            <x:String>Australia</x:String>
+                            <x:String>Austria</x:String>
+                            <x:String>Bangladeș</x:String>
+                            <x:String>Belarus</x:String>
+                            <x:String>Belgia</x:String>
+                            <x:String>Bosnia Herțegovina</x:String>
+                            <x:String>Bulgaria</x:String>
+                            <x:String>Canada</x:String>
+                            <x:String>China</x:String>
+                            <x:String>Cipru</x:String>
+                            <x:String>Columbia</x:String>
+                            <x:String>Congo</x:String>
+                            <x:String>Croaţia</x:String>
+                            <x:String>Danemarca</x:String>
+                            <x:String>Egipt</x:String>
+                            <x:String>Elveţia</x:String>
+                            <x:String>Emiratele Arabe Unite</x:String>
+                            <x:String>Estonia</x:String>
+                            <x:String>Filipine</x:String>
+                            <x:String>Finlanda</x:String>
+                            <x:String>Franţa</x:String>
+                            <x:String>Georgia</x:String>
+                            <x:String>Germania</x:String>
+                            <x:String>Grecia</x:String>
+                            <x:String>India</x:String>
+                            <x:String>Indonezia</x:String>
+                            <x:String>Irlanda</x:String>
+                            <x:String>Islanda</x:String>
+                            <x:String>Israel</x:String>
+                            <x:String>Italia</x:String>
+                            <x:String>Japonia</x:String>
+                            <x:String>Kazahstan</x:String>
+                            <x:String>Letonia</x:String>
+                            <x:String>Lituania</x:String>
+                            <x:String>Luxemburg</x:String>
+                            <x:String>Macedonia</x:String>
+                            <x:String>Malta</x:String>
+                            <x:String>Maroc</x:String>
+                            <x:String>Mexic</x:String>
+                            <x:String>Moldova</x:String>
+                            <x:String>Monaco</x:String>
+                            <x:String>Muntenegru</x:String>
+                            <x:String>Norvegia</x:String>
+                            <x:String>Olanda</x:String>
+                            <x:String>Peru</x:String>
+                            <x:String>Polonia</x:String>
+                            <x:String>Portugalia</x:String>
+                            <x:String>Qatar</x:String>
+                            <x:String>Republica Cehă</x:String>
+                            <x:String>România</x:String>
+                            <x:String>Rusia</x:String>
+                            <x:String>San Marino</x:String>
+                            <x:String>Serbia</x:String>
+                            <x:String>Singapore</x:String>
+                            <x:String>Slovacia</x:String>
+                            <x:String>Slovenia</x:String>
+                            <x:String>Spania</x:String>
+                            <x:String>Statele Unite ale America</x:String>
+                            <x:String>Suedia</x:String>
+                            <x:String>Tailanda</x:String>
+                            <x:String>Turcia</x:String>
+                            <x:String>Turkmenistan</x:String>
+                            <x:String>Ucraina</x:String>
+                            <x:String>Ungaria</x:String>
+                            <x:String>Vatican</x:String>
+                            <x:String>Venezuela</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
                 <Editor x:Name="loc" Placeholder="Localitatea"
                     Text="{Binding Localitate}"
                      Margin="30, 0, 0, 30">
@@ -49,6 +118,8 @@
                     Format="D"
                     Margin="30, 0, 0, 30"
                     Date="{Binding Data_Intoarcere}"/>
+
+                <Label x:Name="diurna" FontSize="Medium" Margin="0, 0, 0, 30"/>
 
                 <Grid>
                     <Grid.ColumnDefinitions>

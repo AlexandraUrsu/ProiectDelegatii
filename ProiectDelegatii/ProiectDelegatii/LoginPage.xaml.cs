@@ -63,13 +63,13 @@ namespace ProiectDelegatii
                     {
                         Task<User> taskUserRol = App.Database.GetRolAsync(user.Username);
                         User user_r = taskUserRol.Result;
-                        if (user_r.Rol.Equals("administrator"))
+                        if (user_r.Rol.Equals("Administrator"))
                         {
                             DisplayAlert(userr.Username, "Administrator", "Ok");
                             Application.Current.MainPage = new NewAppShell();
                             // ((AppShell)App.Current.MainPage).CurrentItem.CurrentItem.Navigation.PushAsync(new AdminPage());
                         }
-                        else if (user_r.Rol.Equals("user"))
+                        else if (user_r.Rol.Equals("User"))
                         {
                             DisplayAlert(user.Username, "User", "Ok");
                             App.Current.MainPage = new AppShell(user);

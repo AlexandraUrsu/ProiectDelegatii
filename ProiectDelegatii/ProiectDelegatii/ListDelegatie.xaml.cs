@@ -30,7 +30,7 @@ namespace ProiectDelegatii
 
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            if (tara.Text == null || tara.Text == "" || loc.Text == null || loc.Text == "")
+            if (tara.SelectedItem == null  || loc.Text == null || loc.Text == "" )
             {
                 DisplayAlert("Nu putem modifica delegația", "Toate câmpurile trebuie să fie completate", "Ok");
             }
@@ -54,8 +54,28 @@ namespace ProiectDelegatii
             base.OnAppearing();
             var del = (Delegatie)BindingContext;
 
+            if (startDatePicker.Date.Year == 1900)
+            {
+                startDatePicker.Date = DateTime.Now;
+            }
+            if (endDatePicker.Date.Year == 1900)
+            {
+                endDatePicker.Date = DateTime.Now;
+            }
+
+
             listView.ItemsSource = await App.Database.GetListAngajatiAsync(del.ID);
+            double zile = (endDatePicker.Date - startDatePicker.Date).TotalDays;
+            if (tara.Title=="România") 
+            {
+                diurna.Text = "Diurna pentru cele " + zile.ToString() + " zile va fi de " + (zile * 50).ToString() + " lei.";
+            }
+            else
+            {
+                diurna.Text = "Diurna pentru cele " + zile.ToString() + " zile va fi de " + (zile * 35).ToString() + " euro.";
+            }
         }
+
         private async void OnSelect(object sender, SelectedItemChangedEventArgs e)
         {
             Angajat a;
@@ -97,33 +117,20 @@ namespace ProiectDelegatii
 
         async void OnDeschideHartaClicked(object sender, EventArgs e)
         {
-            await NavigateToBuilding25();
+            await Navigate();
         }
 
-        public async Task NavigateToBuilding25()
+        public async Task Navigate()
         {
             var placemark = new Placemark
             {
-                CountryName = tara.Text,
+                CountryName = tara.Title,
                 Thoroughfare = adr.Text,
                 Locality = loc.Text
             };
             var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
 
             await Map.OpenAsync(placemark, options);
-        }
-
-
-        public async Task OpenPlacemarkOnMap(Placemark placemark)
-        {
-            try
-            {
-                await placemark.OpenMapsAsync();
-            }
-            catch (Exception ex)
-            {
-                // No map application available to open
-            }
         }
     }
 }

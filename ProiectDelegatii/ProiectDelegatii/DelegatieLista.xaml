@@ -10,22 +10,61 @@
         <ScrollView>
         <StackLayout Margin="20">
             <Label Text="Locație:" />
-            <Editor x:Name="tara" Placeholder="Țara"
-                    Text="{Binding Tara}"
-                     Margin="30, 0, 0, 30"
-                     HeightRequest="40">
-                <Editor.Behaviors>
-                    <local:ValidationBehaviour />
-                </Editor.Behaviors>
-            </Editor>
-            <Editor x:Name="loc" Placeholder="Localitatea"
-                    Text="{Binding Localitate}"
-                     Margin="30, 0, 0, 30"
-                     HeightRequest="40">
-                <Editor.Behaviors>
-                    <local:ValidationBehaviour />
-                </Editor.Behaviors>
-            </Editor>
+                <Picker x:Name="tara" Title="Țara" SelectedItem="{Binding Tara}"   Margin="30, 0, 0, 30" Unfocused="GetOrase">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Anglia</x:String>
+                            <x:String>Austria</x:String>
+                            <x:String>Belgia</x:String>
+                            <x:String>Bosnia Herțegovina</x:String>
+                            <x:String>Bulgaria</x:String>
+                            <x:String>Canada</x:String>
+                            <x:String>China</x:String>
+                            <x:String>Croaţia</x:String>
+                            <x:String>Danemarca</x:String>
+                            <x:String>Elveţia</x:String>
+                            <x:String>Estonia</x:String>
+                            <x:String>Finlanda</x:String>
+                            <x:String>Franţa</x:String>
+                            <x:String>Georgia</x:String>
+                            <x:String>Germania</x:String>
+                            <x:String>Grecia</x:String>
+                            <x:String>India</x:String>
+                            <x:String>Irlanda</x:String>
+                            <x:String>Islanda</x:String>
+                            <x:String>Italia</x:String>
+                            <x:String>Japonia</x:String>
+                            <x:String>Letonia</x:String>
+                            <x:String>Lituania</x:String>
+                            <x:String>Luxemburg</x:String>
+                            <x:String>Moldova</x:String>
+                            <x:String>Monaco</x:String>
+                            <x:String>Muntenegru</x:String>
+                            <x:String>Norvegia</x:String>
+                            <x:String>Olanda</x:String>
+                            <x:String>Polonia</x:String>
+                            <x:String>Portugalia</x:String>
+                            <x:String>Republica Cehă</x:String>
+                            <x:String>România</x:String>
+                            <x:String>Rusia</x:String>
+                            <x:String>Serbia</x:String>
+                            <x:String>Slovacia</x:String>
+                            <x:String>Slovenia</x:String>
+                            <x:String>Spania</x:String>
+                            <x:String>Statele Unite ale Americii</x:String>
+                            <x:String>Suedia</x:String>
+                            <x:String>Turcia</x:String>
+                            <x:String>Turkmenistan</x:String>
+                            <x:String>Ucraina</x:String>
+                            <x:String>Ungaria</x:String>
+                            <x:String>Vatican</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            
+                <Picker x:Name="loc" Title="Localitate" SelectedItem="{Binding Localitate}"   Margin="30, 0, 0, 30" >
+                </Picker>
+            
             <Editor x:Name="adr" Placeholder="Adresa"
                     Text="{Binding Adresa}"
                      Margin="30, 0, 0, 30"

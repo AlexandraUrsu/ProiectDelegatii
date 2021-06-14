@@ -5,6 +5,7 @@
              x:Class="ProiectDelegatii.AngajatiAdaugare" 
              BackgroundColor="#E3D4C5">
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="OnDeleteButtonClicked" Icon="delete.png"/>
         <ToolbarItem Text="Save" Clicked="OnSaveButtonClicked" Icon="save.png"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
@@ -27,10 +28,37 @@
                         <local:ValidationBehaviour />
                     </Editor.Behaviors>
                 </Editor>
-                
-                <Label Text="Manager:"/>
-                <Editor x:Name="manager" Placeholder="Manager" Margin="20"
-                    Text="{Binding Manager}"
+
+                <Label Text="CNP:"/>
+                <Editor x:Name="cnp" Placeholder="CNP" Margin="20"
+                    Text="{Binding CNP}"
+                    HeightRequest="50" >
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
+                <Label Text="Seria și numărul buletinului:"/>
+                <Editor x:Name="buletin" Placeholder="Serie și număr buletin" Margin="20"
+                    Text="{Binding Buletin}"
+                    HeightRequest="50" >
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
+                <Label Text="Nume manager:"/>
+                <Editor x:Name="nume_manager" Placeholder="Nume Manager" Margin="20"
+                    Text="{Binding Nume_manager}"
+                    HeightRequest="50" >
+                    <Editor.Behaviors>
+                        <local:ValidationBehaviour />
+                    </Editor.Behaviors>
+                </Editor>
+
+                <Label Text="Prenume manager:"/>
+                <Editor x:Name="prenume_manager" Placeholder="Prenume Manager" Margin="20"
+                    Text="{Binding Prenume_manager}"
                     HeightRequest="50" >
                     <Editor.Behaviors>
                         <local:ValidationBehaviour />

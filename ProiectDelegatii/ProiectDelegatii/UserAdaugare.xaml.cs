@@ -43,10 +43,19 @@ namespace ProiectDelegatii
             }
             else
             {
-                var user = (User)BindingContext;
-                user.Parola = passwordEncryption(user.Parola);
-                await App.Database.SaveUserAsync(user);
-                await Navigation.PopAsync();
+                try
+                {
+                    var user = (User)BindingContext;
+                    user.Parola = passwordEncryption(user.Parola);
+                    await App.Database.SaveUserAsync(user);
+                    await Navigation.PopAsync();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine("Utiliaztorul există deja");
+                    await Navigation.PopAsync();
+                }
+                
             }
         }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
