@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -87,6 +87,28 @@ namespace ProiectDelegatii
                         {
                             await App.Database.SaveListAngajatAsync(la);
                             a.ListAngajati = new List<ListAngajat> { la };
+
+                            try
+                            {
+                                List<string> recipients = new List<string>();
+                                recipients.Add(a.Nume+a.Prenume+"@yahoo.com");
+                                var message = new EmailMessage
+                                {
+                                    Subject = "Ați fost adăugat la delegația "+dl.ID,
+                                    Body = "Locația delegației: "+dl.Tara+" "+dl.Localitate+", Perioada: "+dl.Data_Plecare.ToShortDateString()+" - "+dl.Data_Intoarcere.ToShortDateString(),
+                                    To = recipients
+                                    //Cc = ccRecipients,
+                                    //Bcc = bccRecipients
+                                };
+                                await Email.ComposeAsync(message);
+                            }
+                            catch (FeatureNotSupportedException fbsEx)
+                            {
+                            }
+                            catch (Exception ex)
+                            {
+                            }
+
                             await Navigation.PopAsync();
                            
                         }

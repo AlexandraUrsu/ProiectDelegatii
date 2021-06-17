@@ -16,7 +16,5 @@ namespace ProiectDelegatii.Models
         public string Adresa { get; set; }
         public DateTime Data_Plecare { get; set; }
         public DateTime Data_Intoarcere { get; set; }
-        public DateTime Data { get; set; }
-        public String Documete { get; set; }
     }
 }

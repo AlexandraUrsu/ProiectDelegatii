@@ -197,6 +197,15 @@ namespace ProiectDelegatii.Data
             username);
         }
 
+        public Task<List<User>> GetAdministratoriAsync(String administrator)
+        {
+            return _database.FindWithQueryAsync<List<User>>(
+            "select U.Username from User U"
+           + " where U.Rol = ?",
+            administrator);
+        }
+
+
         //SearchBar
         public Task<List<Delegatie>> GetSearchResults(String text)
         {

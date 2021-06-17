@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -63,15 +63,15 @@ namespace ProiectDelegatii
                     {
                         Task<User> taskUserRol = App.Database.GetRolAsync(user.Username);
                         User user_r = taskUserRol.Result;
-                        if (user_r.Rol.Equals("Administrator"))
+                        if (user_r.Rol.Equals("administrator"))
                         {
-                            DisplayAlert(userr.Username, "Administrator", "Ok");
+                            DisplayAlert("Bine ai venit!", "Administrator "+ userr.Username, "Ok");
                             Application.Current.MainPage = new NewAppShell();
                             // ((AppShell)App.Current.MainPage).CurrentItem.CurrentItem.Navigation.PushAsync(new AdminPage());
                         }
-                        else if (user_r.Rol.Equals("User"))
+                        else if (user_r.Rol.Equals("user"))
                         {
-                            DisplayAlert(user.Username, "User", "Ok");
+                            DisplayAlert("Bine ai venit!", "Utilizator "+user.Username, "Ok");
                             App.Current.MainPage = new AppShell(user);
                         }
                     }
@@ -80,5 +80,30 @@ namespace ProiectDelegatii
             }
         }
 
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                List<string> recipients = new List<string>();
+                recipients.Add("alexandra@administrator.ro");
+                var message = new EmailMessage
+                {
+                    Subject = "Rog resetare parola",
+                    Body = "",
+                    To = recipients
+                    //Cc = ccRecipients,
+                    //Bcc = bccRecipients
+                };
+                await Email.ComposeAsync(message);
+            }
+            catch (FeatureNotSupportedException fbsEx)
+            {
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
     }
 }

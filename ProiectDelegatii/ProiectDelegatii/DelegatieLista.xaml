@@ -10,7 +10,7 @@
         <ScrollView>
         <StackLayout Margin="20">
             <Label Text="Locație:" />
-                <Picker x:Name="tara" Title="Țara" SelectedItem="{Binding Tara}"   Margin="30, 0, 0, 30" Unfocused="GetOrase">
+                <Picker x:Name="tara" Title="Țara" SelectedItem="{Binding Tara}"   Margin="30, 0, 0, 30" Focused="UnsetOrase" Unfocused="GetOrase">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>Anglia</x:String>
@@ -38,7 +38,6 @@
                             <x:String>Lituania</x:String>
                             <x:String>Luxemburg</x:String>
                             <x:String>Moldova</x:String>
-                            <x:String>Monaco</x:String>
                             <x:String>Muntenegru</x:String>
                             <x:String>Norvegia</x:String>
                             <x:String>Olanda</x:String>
@@ -61,8 +60,8 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-            
-                <Picker x:Name="loc" Title="Localitate" SelectedItem="{Binding Localitate}"   Margin="30, 0, 0, 30" >
+
+                <Picker x:Name="loc" Title="Localitate" SelectedItem="{Binding Localitate}"   Margin="30, 0, 0, 30">
                 </Picker>
             
             <Editor x:Name="adr" Placeholder="Adresa"
